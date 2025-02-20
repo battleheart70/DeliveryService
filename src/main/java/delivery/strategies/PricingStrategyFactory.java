@@ -1,13 +1,12 @@
 package delivery.strategies;
 
+import delivery.util.DateProvider;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Factory for creating a list of pricing strategies.
- */
+/** Factory for creating a list of pricing strategies. */
 @Component
 public class PricingStrategyFactory {
 
@@ -22,6 +21,7 @@ public class PricingStrategyFactory {
         new CargoSizePricing(),
         new UrgencyPricing(),
         new FragilityPricing(),
+        new WeekendPricing(),
         new WorkloadPricing());
   }
 }

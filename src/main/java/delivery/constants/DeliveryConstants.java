@@ -34,4 +34,7 @@ public final class DeliveryConstants {
   // maxiumum delivery distance
   public static final double MAX_DELIVERY_DISTANCE = 100.0;
 
+  //Weekend Surcharge
+  public static final int WEEKEND_SURCHARGE = 125;
+
 }

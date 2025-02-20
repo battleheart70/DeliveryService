@@ -1,11 +1,14 @@
 package delivery.strategies;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Factory for creating a list of pricing strategies.
  */
+@Component
 public class PricingStrategyFactory {
 
   /**

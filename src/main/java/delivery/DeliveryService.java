@@ -4,13 +4,16 @@ import delivery.exceptions.FragileItemDistanceExceededException;
 import delivery.strategies.PricingStrategy;
 import delivery.strategies.PricingStrategyFactory;
 import delivery.validation.DeliveryValidatorUtil;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static delivery.constants.DeliveryConstants.MIN_COST;
 
+@Service
 public class DeliveryService {
   private final List<PricingStrategy> strategies;
+
 
   public DeliveryService(PricingStrategyFactory strategyFactory) {
     this.strategies = strategyFactory.getStrategies();

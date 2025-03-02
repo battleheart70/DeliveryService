@@ -1,13 +1,28 @@
-FROM amazoncorretto:21-al2-jdk
 
-# Устанавливаем рабочую директорию внутри контейнера
+FROM maven:3.9.5-amazoncorretto-21 AS build
+
+
 WORKDIR /app
 
-# Копируем собранный JAR-файл из папки target
-COPY target/*.jar app.jar
 
-# Открываем порт 8080 для приложения
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+
+FROM amazoncorretto:21-al2-jdk
+
+
+WORKDIR /app
+
+
+COPY --from=build /app/target/*.jar app.jar
+
+
 EXPOSE 8080
 
-# Запускаем приложение
+
 ENTRYPOINT ["java", "-jar", "app.jar"]

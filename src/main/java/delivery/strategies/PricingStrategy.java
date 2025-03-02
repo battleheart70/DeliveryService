@@ -8,7 +8,7 @@ import delivery.DeliveryRequest;
  */
 public interface PricingStrategy {
 
-  /**
+    /**
    * Checks if the strategy is applicable for the given delivery request.
    *
    * @param request the delivery request
